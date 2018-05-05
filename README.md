@@ -90,13 +90,26 @@ Here is a list of *some* of the software that comes pre-installed:
 Install
 -------
 
-Download, review, then execute the below script on the *TP-Link MR3040* running *OpenWRT* (Please see [Wiki](https://github.com/nicholasadamou/minipwner/wiki/Configuring-a-TP-Link-MR3040-into-a-MiniPwner) for instructions on configuring the MiniPwner):
+**Note**: *Please see [Wiki](https://github.com/nicholasadamou/minipwner/wiki/Configuring-a-TP-Link-MR3040-into-a-MiniPwner) for instructions on configuring the MiniPwner*.
 
+There are two methods provided for installing and configure the *TP-Link MR3040* router into a MiniPwner. Please review and choose one below.
+
+Review, then execute the below script on the *TP-Link MR3040* running *OpenWRT*:
+
+**Method One**:
 ```
 wget -O /tmp/minipwner.zip https://github.com/nicholasadamou/minipwner/archive/master.zip && \
     unzip /tmp/minipwner.zip && \
     cd /tmp/minipwner && \
     bash src/setup.sh
+```
+
+**Method Two**:
+```
+wget -O /tmp/minipwner-overlay_2.0.0.tar  && \
+    tar /tmp/minipwner-overlay_2.0.0.tar && \
+    cd /tmp/minipwner-overlay_2.0.0 && \
+    sh src/setup.sh
 ```
 
 License
