@@ -107,7 +107,8 @@ wget -O /tmp/minipwner.zip https://github.com/nicholasadamou/minipwner/archive/m
 **Method Two**:
 ```
 wget -O /tmp/minipwner-overlay_2.0.0.tar https://raw.githubusercontent.com/nicholasadamou/minipwner/master/OVERLAY/minipwner-overlay_2.0.0.tar && \
-    tar /tmp/minipwner-overlay_2.0.0.tar && \
+    mkdir /tmp/minipwner-overlay_2.0.0 && \
+    tar -C /tmp/minipwner-overlay_2.0.0 -xvf /tmp/minipwner-overlay_2.0.0.tar && \
     cd /tmp/minipwner-overlay_2.0.0 && \
     sh src/setup.sh
 ```
