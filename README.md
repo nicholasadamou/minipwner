@@ -96,7 +96,7 @@ Download, review, then execute the below script on the *TP-Link MR3040* running 
 wget -O /tmp/minipwner.zip https://github.com/nicholasadamou/minipwner/archive/master.zip && \
     unzip /tmp/minipwner.zip && \
     cd /tmp/minipwner && \
-    sh src/setup.sh
+    bash src/setup.sh
 ```
 
 License
