@@ -1,0 +1,77 @@
+#!/bin/sh
+# Name:        minimodes
+# Purpose:     To setup and start the MiniModes for the MiniPwner
+# By:          Michael Vieau
+# Date:        11.27.14
+# Modified:    12.07.14
+# Rev Level    0.2
+# ----------------------------------------------------------------
+
+# Build html file for user interface
+FILE="/www/cgi-bin/minimodes"
+echo "#!/bin/sh" > $FILE
+echo "echo \"Content-type: text/html\"" >> $FILE
+echo "echo \"\"" >> $FILE
+echo "CTOP=\`grep lohi /minipwner/minimodes/mode | cut -d\"=\" -f2\`" >> $FILE
+echo "CBOT=\`grep hihi /minipwner/minimodes/mode | cut -d\"=\" -f2\`" >> $FILE
+echo "" >> $FILE
+echo "read QUERY_STRING" >> $FILE
+echo "TOP=\`echo \$QUERY_STRING | cut -d\"&\" -f1\`" >> $FILE
+echo "BOT=\`echo \$QUERY_STRING | cut -d\"&\" -f2\`" >> $FILE
+echo "" >> $FILE
+echo "if [ \"\$TOP\" = \"lohi=0\" ] || [ -z \"\$TOP\" ]; then" >> $FILE
+echo "        TOP=\"lohi=\"\$CTOP" >> $FILE
+echo "fi" >> $FILE
+echo "" >> $FILE
+echo "if [ \"\$BOT\" = \"hihi=0\" ] || [ -z \"\$BOT\" ]; then" >> $FILE
+echo "        BOT=\"hihi=\"\$CBOT" >> $FILE
+echo "fi" >> $FILE
+echo "" >> $FILE
+echo "echo \$TOP > /minipwner/minimodes/mode" >> $FILE
+echo "echo \$BOT >> /minipwner/minimodes/mode" >> $FILE
+echo "" >> $FILE
+echo "CTOP=\`grep lohi /minipwner/minimodes/mode | cut -d\"=\" -f2\`" >> $FILE
+echo "CBOT=\`grep hihi /minipwner/minimodes/mode | cut -d\"=\" -f2\`" >> $FILE
+echo "" >> $FILE
+echo "echo \"<html>\"" >> $FILE
+echo "echo \"<body>Select your <b>MiniModes</b><br><br>\"" >> $FILE
+echo "echo \"<u>System time</u><br>\"" >> $FILE
+echo "echo \"\$(date)<br><br>\"" >> $FILE
+echo "" >> $FILE
+echo "echo \"<table border=1 cellpadding=4>\"" >> $FILE
+echo "echo \"<tr align=center><td><b>Switch</b></td><td><b>Current Setting</b></td><td><b>New Setting</b></td></tr>\"" >> $FILE
+echo "echo \"<tr><td>3G/4G</td><td>\$CTOP</td>\"" >> $FILE
+echo "echo \"<td><select name=\"lohi\" form=\"savefile\"><option value=0>--- Select ---</option>\"" >> $FILE
+
+for i in `ls -d /minipwner/minimodes/*/ | cut -d"/" -f4`
+do
+	echo "echo \"<option value=$i>$i</option>\"" >> $FILE
+done
+echo "echo \"</select></td></tr>\"" >> $FILE
+
+echo "echo \"<tr><td>WISP</td><td>Setup</td><td>N/A</td></tr>\"" >> $FILE
+
+echo "echo \"<tr><td>AP</td><td>\$CBOT</td>\"" >> $FILE
+echo "echo \"<td><select name=\"hihi\" form=\"savefile\"><option value=0>--- Select ---</option>\"" >> $FILE
+
+for i in `ls -d /minipwner/minimodes/*/ | cut -d"/" -f4`
+do                                                  
+        echo "echo \"<option value=$i>$i</option>\"" >> $FILE
+done                                              
+echo "echo \"</select></td></tr>\"" >> $FILE
+
+echo "echo \"</table>\"" >> $FILE
+echo "echo \"<br>\"" >> $FILE
+echo "echo \"<form action=\"minimodes\" method=\"post\" id=\"savefile\">\"" >> $FILE
+echo "echo \"<input type=\"submit\" value=\"Save\">\"" >> $FILE
+echo "echo \"</form>\"" >> $FILE
+echo "echo \"</body></html>\"" >> $FILE
+
+# Set permissions
+chmod +x $FILE
+
+# Blank out status file
+echo "null" > /minipwner/minimodes/stat 2>&1
+
+# Start the main script
+/minipwner/minimodes/switch.sh &
