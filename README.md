@@ -92,7 +92,7 @@ Install
 
 **Note**: *Please see [Wiki](https://github.com/nicholasadamou/minipwner/wiki/Configuring-a-TP-Link-MR3040-into-a-MiniPwner) for instructions on configuring the MiniPwner*.
 
-There are two methods provided for installing and configure the *TP-Link MR3040* router into a MiniPwner. Please review and choose one below.
+There are *two methods* provided for installing and configure the *TP-Link MR3040* router into a *MiniPwner*. Please review and choose one below.
 
 Review, then execute the below script on the *TP-Link MR3040* running *OpenWRT*:
 
@@ -106,7 +106,7 @@ wget -O /tmp/minipwner.zip https://github.com/nicholasadamou/minipwner/archive/m
 
 **Method Two**:
 ```
-wget -O /tmp/minipwner-overlay_2.0.0.tar  && \
+wget -O /tmp/minipwner-overlay_2.0.0.tar https://raw.githubusercontent.com/nicholasadamou/minipwner/master/OVERLAY/minipwner-overlay_2.0.0.tar && \
     tar /tmp/minipwner-overlay_2.0.0.tar && \
     cd /tmp/minipwner-overlay_2.0.0 && \
     sh src/setup.sh
