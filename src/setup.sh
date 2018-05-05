@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Name:     setup.sh
 # Purpose:  Install the MiniPwner overlay to OpenWRT
 # By:       Michael Vieau
@@ -8,11 +8,11 @@
 # Rev Level 0.1
 # -----------------------------------------------
 
-BASH_UTILS_URL="https://raw.githubusercontent.com/nicholasadamou/bash-utils/master/utils.sh"
+declare BASH_UTILS_URL="https://raw.githubusercontent.com/nicholasadamou/bash-utils/master/utils.sh"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-skipQuestions=false
+declare skipQuestions=false
 
 trap "exit 1" TERM
 export TOP_PID=$$
