@@ -8,11 +8,11 @@
 # Rev Level 0.1
 # -----------------------------------------------
 
-declare BASH_UTILS_URL="https://raw.githubusercontent.com/nicholasadamou/bash-utils/master/utils.sh"
+BASH_UTILS_URL="https://raw.githubusercontent.com/nicholasadamou/bash-utils/master/utils.sh"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-declare skipQuestions=false
+skipQuestions=false
 
 trap "exit 1" TERM
 export TOP_PID=$$
