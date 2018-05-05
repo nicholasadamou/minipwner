@@ -90,7 +90,7 @@ Here is a list of *some* of the software that comes pre-installed:
 Install
 -------
 
-**Note**: *Please see [Wiki](https://github.com/nicholasadamou/minipwner/wiki/Configuring-a-TP-Link-MR3040-into-a-MiniPwner) for instructions on configuring the MiniPwner*.
+**Note**: *Please see the [Wiki/Configuring-a-TP-Link-MR3040-into-a-MiniPwner](https://github.com/nicholasadamou/minipwner/wiki/Configuring-a-TP-Link-MR3040-into-a-MiniPwner) for instructions on configuring the MiniPwner*.
 
 There are *two methods* provided for installing and configure the *TP-Link MR3040* router into a *MiniPwner*. Please review and choose one below.
 
