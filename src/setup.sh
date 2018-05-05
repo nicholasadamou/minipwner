@@ -1,6 +1,6 @@
 #!/bin/sh
 # Name:     setup.sh
-# Purpose:  Install the MiniPwner overlay to OpenWrt
+# Purpose:  Install the MiniPwner overlay to OpenWRT
 # By:       Michael Vieau
 # By:       Nicholas Adamou
 # Date:     12.12.14
