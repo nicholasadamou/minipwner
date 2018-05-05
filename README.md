@@ -21,23 +21,23 @@ Features
 
 * **Integrated Wired and Wireless connections**
 
-      Once plugged into a target network, the Mini-Pwner can establish an SSH tunnel through the target network, or can be accessed by wifi. In addition, the MiniPwner can be configured as a wifi sniffer and logger - war walking in your pocket.
+    Once plugged into a target network, the Mini-Pwner can establish an SSH tunnel through the target network, or can be accessed by wifi. In addition, the MiniPwner can be configured as a wifi sniffer and logger - war walking in your pocket.
 
 * **Low power consumption, can be run off battery.**
 
-      With a 2000 mAh built-in battery, the Mini-Pwner will run for over five hours of active wired and wireless activity. No need to find a power outlet during the pen test.
+    With a 2000 mAh built-in battery, the Mini-Pwner will run for over five hours of active wired and wireless activity. No need to find a power outlet during the pen test.
 
 * **Multiple Pen Testing Tools included**
 
-      aircrack-ng, elinks, ettercap-ng, karma, kismet, nbtscan, netcat, nmap, openvpn, perl 5, samba client, snort, tar, tcpdump, tmux, yafc, and wget all come pre-installed.
+    aircrack-ng, elinks, ettercap-ng, karma, kismet, nbtscan, netcat, nmap, openvpn, perl 5, samba client, snort, tar, tcpdump, tmux, yafc, and wget all come pre-installed.
 
 * **Flexible and Expandable**
 
-      The MiniPwner runs on the open source OpenWrt operating system. You can easily add or change the installed packages.
+    The MiniPwner runs on the open source OpenWrt operating system. You can easily add or change the installed packages.
 
 * **Small size**
 
-      The MiniPwner can be easily carried in a pocket, hidden behind a telephone, or hang from a jack by a short ethernet cable (included).
+    The MiniPwner can be easily carried in a pocket, hidden behind a telephone, or hang from a jack by a short ethernet cable (included).
 
 Specifications
 -------
@@ -53,19 +53,19 @@ What can you do with it?
 
 * **Pen Testing Drop Box**
 
-      In this mode, the MiniPwner used to establish rogue access to a target network during a penetration test. The penetration tester uses stealth or social engineering techniques to plug the MiniPwner into an available network port. (common locations include conference rooms, unoccupied workstations, the back of IP Telephones, etc.)
+    In this mode, the MiniPwner used to establish rogue access to a target network during a penetration test. The penetration tester uses stealth or social engineering techniques to plug the MiniPwner into an available network port. (common locations include conference rooms, unoccupied workstations, the back of IP Telephones, etc.)
 
-      Once it is plugged in, the penetration tester can log into the MiniPwner and begin scanning and attacking the network. The MiniPwner can simultaneously establish SSH tunnels through the target network, and also allow the penetration tester to connect to the MiniPwner via WiFi.
+    Once it is plugged in, the penetration tester can log into the MiniPwner and begin scanning and attacking the network. The MiniPwner can simultaneously establish SSH tunnels through the target network, and also allow the penetration tester to connect to the MiniPwner via WiFi.
 
-      The MiniPwner can run some software directly from the box, such as nmap to map the target network or the samba client to connect to windows shares. Other tools, such as Metasploit or Nessus can be run through the box using a VPN tunnel.
+    The MiniPwner can run some software directly from the box, such as nmap to map the target network or the samba client to connect to windows shares. Other tools, such as Metasploit or Nessus can be run through the box using a VPN tunnel.
 
 * **Wireless war-walking**
       
-      The battery-powered MiniPwner is small enough to fit in your jeans pocket and can run for hours. In wireless war-walking mode you start kismet or aircrack-ng on the MiniPwner and record details about all of the wireless networks detected by the device.
+    The battery-powered MiniPwner is small enough to fit in your jeans pocket and can run for hours. In wireless war-walking mode you start kismet or aircrack-ng on the MiniPwner and record details about all of the wireless networks detected by the device.
 
 * **Captive WiFi Portal or Rogue Access Point**
 
-      Use the Karma application to discover clients and their preferred/trusted networks by passively listening for 802.11 Probe Request frames. From there, individual clients can be targetted by creating a Rogue AP for one of their probed networks (which they may join automatically) or using a custom driver that responds to probes and association requests for any SSID. Higher-level fake services can then capture credentials or exploit client-side vulnerabilities on the host.
+    Use the Karma application to discover clients and their preferred/trusted networks by passively listening for 802.11 Probe Request frames. From there, individual clients can be targetted by creating a Rogue AP for one of their probed networks (which they may join automatically) or using a custom driver that responds to probes and association requests for any SSID. Higher-level fake services can then capture credentials or exploit client-side vulnerabilities on the host.
 
 *There are many other creative ways to use the MiniPwner.*
 
