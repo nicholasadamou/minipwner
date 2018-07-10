@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
-    && source <(curl -s "https://raw.githubusercontent.com/nicholasadamou/bash-utils/master/utils.sh")
+    && source <(curl -s "https://raw.githubusercontent.com/nicholasadamou/dotfiles/master/src/UTILITIES/utils.sh")
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
