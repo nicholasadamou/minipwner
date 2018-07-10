@@ -84,8 +84,13 @@ main() {
         # are made relative to this file's path.
 
         cd "$(dirname "${BASH_SOURCE[0]}")" \
-            && source <(curl -s "$BASH_UTILS_URL") \
             || exit 1
+        
+        # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        # Load utils
+
+        source <(curl -s "$BASH_UTILS_URL")
 
         # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
