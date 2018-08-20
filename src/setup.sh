@@ -21,21 +21,6 @@ export TOP_PID=$$
 # | Helper Functions                                                   |
 # ----------------------------------------------------------------------
 
-is_connected_to_internet() {
-    # The IP for the server you wish to ping (8.8.8.8 is a public Google DNS server)
-    SERVER=8.8.8.8 # Google DNS
-
-    # Only send two pings, sending output to /dev/null
-    ping -c2 ${SERVER} > /dev/null
-
-    # If the return code from ping ($?) is not 0 (meaning there was an error)
-    if [ $? != 0 ]; then
-        return 1
-    else
-        return 0
-    fi
-}
-
 restart() {
     ask_for_confirmation "Do you want to restart?"
     
