@@ -8,7 +8,7 @@
 # Rev Level 0.1
 # -----------------------------------------------
 
-declare BASH_UTILS_URL="https://raw.githubusercontent.com/nicholasadamou/Dotfile-Utilities/master/utils.sh"
+declare BASH_UTILS_URL="https://raw.githubusercontent.com/nicholasadamou/utilities/linux/utils.sh"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
