@@ -12,11 +12,6 @@ declare BASH_UTILS_URL="https://raw.githubusercontent.com/nicholasadamou/utiliti
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-declare skipQuestions=false
-
-trap "exit 1" TERM
-export TOP_PID=$$
-
 # ----------------------------------------------------------------------
 # | Helper Functions                                                   |
 # ----------------------------------------------------------------------
@@ -79,11 +74,6 @@ main() {
 
         # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-        skip_questions "$@" \
-            && skipQuestions=true
-
-        # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
         ask_for_sudo
 
         # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -92,10 +82,8 @@ main() {
 
         # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         
-        if ! $skipQuestions; then
-            restart
-        fi
+        restart
     fi
 }
 
-main "$@"
+main
