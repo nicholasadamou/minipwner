@@ -116,7 +116,7 @@ wget -O /tmp/minipwner-overlay_2.0.0.tar https://raw.githubusercontent.com/nicho
 License
 -------
 
-MiniPwner is © 2018 Nicholas Adamou, Michael Vieau.
+MiniPwner is © Nicholas Adamou, Michael Vieau.
 
 It is free software, and may be redistributed under the terms specified in the [LICENSE] file.
 
