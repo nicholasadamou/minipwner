@@ -2,7 +2,6 @@
 
 ![banner](banner.png)
 
-![license](https://img.shields.io/apm/l/vim-mode.svg)
 [![Say Thanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/NicholasAdamou)
 
 A script to configure a *TP-Link MR3040* running *OpenWRT* into a simple, yet powerful penetration-testing "drop box".
