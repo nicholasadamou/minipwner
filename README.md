@@ -1,4 +1,4 @@
-# MiniPwner [![Build Status](https://travis-ci.org/nicholasadamou/minipwner.svg?branch=master)](https://travis-ci.org/nicholasadamou/minipwner)
+# MiniPwner
 
 ![banner](banner.png)
 
