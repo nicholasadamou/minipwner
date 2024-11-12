@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set executable permissions
+        run: chmod +x ./test/customize_environment.sh ./test/main.sh ./src/setup.sh
+
+      - name: Customize environment
+        run: ./test/customize_environment.sh
+
+      - name: Install dependencies
+        run: ./src/setup.sh -y
+
+      - name: Run tests
+        run: ./test/main.sh

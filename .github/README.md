@@ -1,6 +1,6 @@
 # MiniPwner
 
-![banner](banner.png)
+![banner](/banner.png)
 
 A script to configure a *TP-Link MR3040* running *OpenWRT* into a simple, yet powerful penetration-testing "drop box".
 
@@ -9,7 +9,7 @@ What is the "MiniPwner"?
 
 **The MiniPwner is a penetration testing "drop box".**
 
-It is designed as a small, simple but powerful device that can be inconspicuously plugged into a network and provide the penetration tester remote access to that network. 
+It is designed as a small, simple but powerful device that can be inconspicuously plugged into a network and provide the penetration tester remote access to that network.
 
 It's made up of a portable *TP-Link MR3040* running *OpenWRT*.
 
@@ -40,9 +40,9 @@ Specifications
 -------
 
 The MiniPwner is a *TP-Link MR3040* router with a *16GB flash drive* to expand its storage capability.
-    
-Includes *802.11n Wireless N* WiFi and an *Ethernet port*. 
-    
+
+Includes *802.11n Wireless N* WiFi and an *Ethernet port*.
+
 Operating System is *OpenWrt Barrier Breaker*.
 
 What can you do with it?
@@ -57,7 +57,7 @@ What can you do with it?
     The MiniPwner can run some software directly from the box, such as nmap to map the target network or the samba client to connect to windows shares. Other tools, such as Metasploit or Nessus can be run through the box using a VPN tunnel.
 
 * **Wireless war-walking**
-      
+
     The battery-powered MiniPwner is small enough to fit in your jeans pocket and can run for hours. In wireless war-walking mode you start kismet or aircrack-ng on the MiniPwner and record details about all of the wireless networks detected by the device.
 
 * **Captive WiFi Portal or Rogue Access Point**
@@ -117,4 +117,4 @@ MiniPwner is © Nicholas Adamou, Michael Vieau.
 
 It is free software, and may be redistributed under the terms specified in the [LICENSE] file.
 
-[LICENSE]: LICENSE
+[LICENSE]: /LICENSE
