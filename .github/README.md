@@ -1,4 +1,4 @@
-# MiniPwner
+# MiniPwner [![CI](https://github.com/nicholasadamou/minipwner/actions/workflows/ci.yaml/badge.svg)](https://github.com/nicholasadamou/minipwner/actions/workflows/ci.yaml)
 
 ![banner](/banner.png)
 
