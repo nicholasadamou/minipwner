@@ -20,6 +20,9 @@ jobs:
       - name: Customize environment
         run: ./test/customize_environment.sh
 
+      - name: Set TERM variable
+        run: echo "TERM=xterm" >> $GITHUB_ENV
+
       - name: Install dependencies
         run: ./src/setup.sh -y
 
