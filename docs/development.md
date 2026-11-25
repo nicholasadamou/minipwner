@@ -25,3 +25,9 @@ These checks do not flash firmware, reboot a router, emulate OpenWrt, or validat
 hardware/network behavior. Test deployment separately on compatible hardware.
 There are no hosted workflows, Git hooks, JavaScript tools, or environment managers.
 Documentation diagrams render directly on GitHub.
+
+## Code readability
+
+Prefer descriptive names, explicit error handling, and blank lines between logical
+steps. Keep one operation per line and use comments to explain non-obvious intent.
+Readable code takes priority over a smaller line count.
