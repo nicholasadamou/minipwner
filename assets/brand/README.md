@@ -39,4 +39,4 @@ The social preview contains the logo and wordmark together. Keep all essential a
 
 ## Source and exports
 
-The identity was developed with `cinderwood-labs/popcorn` as the visual reference. The mascot, artwork and wording are specific to this project. Raster masters retain their transparency; the preview is exported for GitHub at 1280 × 640. The brand board is a presentation reference. See the accompanying prompt archive for the artwork specifications.
+The mascot, artwork and wording are specific to this project. Raster masters retain their transparency; the preview is exported for GitHub at 1280 × 640. The brand board is a presentation reference. See the accompanying prompt archive for the artwork specifications.

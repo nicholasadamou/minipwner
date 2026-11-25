@@ -2,10 +2,9 @@
 
 <img src="../assets/brand/social-preview.png" alt="MiniPwner — pocket-sized penetration testing with an MR3040-inspired router mascot" width="1280" />
 
-[![CI](https://github.com/nicholasadamou/minipwner/actions/workflows/ci.yaml/badge.svg)](https://github.com/nicholasadamou/minipwner/actions/workflows/ci.yaml)
 ![Shell](https://img.shields.io/badge/Shell-18231E?logo=gnubash&logoColor=white)
 ![OpenWrt](https://img.shields.io/badge/OpenWrt-176B77?logo=openwrt&logoColor=white)
-[![License](https://img.shields.io/github/license/nicholasadamou/minipwner?label=License)](../LICENSE)
+[![License](https://img.shields.io/badge/License-PolyForm_Shield_1.0.0-176B77)](../LICENSE)
 
 A script to configure a *TP-Link MR3040* running *OpenWRT* into a simple, yet powerful penetration-testing "drop box".
 
@@ -115,11 +114,32 @@ wget -O /tmp/minipwner-overlay_2.0.0.tar https://raw.githubusercontent.com/nicho
     sh src/setup.sh
 ```
 
+Local verification
+-------
+
+With Docker running, execute from the repository root:
+
+```sh
+./test/verify.sh
+```
+
+The command builds a Debian-based verification image with Bash and ShellCheck,
+then checks the installer, verification scripts, and MiniModes shell syntax.
+After the image is built, verification runs without network access in a read-only,
+unprivileged container. The build requires access to the Debian image and package
+repositories.
+
+Verification does not execute the installer, flash firmware, or emulate OpenWrt
+hardware. Device behavior still needs to be checked on a compatible router.
+GitHub Actions and the legacy Travis setup have been removed; verification is local.
+
 License
 -------
 
-MiniPwner is © Nicholas Adamou, Michael Vieau.
+Copyright © 2026 Nicholas Adamou.
 
-It is free software, and may be redistributed under the terms specified in the [LICENSE] file.
+The project is licensed under [PolyForm Shield License 1.0.0](../LICENSE),
+with Nicholas Adamou as the holder.
 
-[LICENSE]: /LICENSE
+The original MIT notice for earlier code is preserved in
+[LICENSES/MIT-2018.txt](../LICENSES/MIT-2018.txt); see [NOTICE](../NOTICE).

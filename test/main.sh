@@ -1,33 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
-cd "$(dirname "${BASH_SOURCE[0]}")" \
-    && source <(curl -s "https://example.invalid/retired-helper.sh")
+cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.."
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+for script in src/setup.sh test/main.sh test/verify.sh; do
+    bash -n "$script"
+done
+sh -n src/bin/minimodes
 
-main() {
+# Preserve the installer's existing ShellCheck exclusions for legacy code.
+shellcheck --exclude=SC1090,SC1091,SC2033,SC2129,SC2155,SC2164,SC2200 src/setup.sh
+shellcheck test/main.sh test/verify.sh
 
-    # ' At first you're like "shellcheck is awesome" but then you're
-    #   like "wtf[,] [why] are we still using bash[?]" '.
-    #
-    #  (from: https://twitter.com/astarasikov/status/568825996532707330)
-
-    find \
-        ../src \
-        -type f \
-        ! -path '../src/bin/*' \
-        -exec shellcheck \
-                -e SC1090 \
-                -e SC1091 \
-                -e SC2033 \
-                -e SC2129 \
-                -e SC2155 \
-                -e SC2164 \
-                -e SC2200 \
-        {} +
-
-    print_result $? "Run code through ShellCheck"
-
-}
-
-main
+printf 'MiniPwner verification passed (shell syntax and ShellCheck).\n'
