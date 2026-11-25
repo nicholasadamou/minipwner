@@ -1,7 +1,10 @@
-*
-!src/
-!src/**
-!test/
-!test/Dockerfile
-!test/main.sh
-!test/verify.sh
+.git
+.flox/run
+.flox/cache
+.flox/lib
+.flox/log
+node_modules
+FIRMWARE
+OVERLAY
+assets/brand/*.png
+assets/brand/*.jpg

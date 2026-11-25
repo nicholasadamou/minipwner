@@ -1,0 +1,5 @@
+{
+  "globs": ["**/*.md", ".github/**/*.md"],
+  "ignores": ["node_modules/**", ".flox/**"],
+  "config": {"MD013": false, "MD033": false}
+}

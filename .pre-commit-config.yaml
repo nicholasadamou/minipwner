@@ -1,0 +1,9 @@
+repos:
+  - repo: local
+    hooks:
+      - id: local-ci
+        name: Full local Docker verification
+        entry: ./test/verify.sh
+        language: system
+        pass_filenames: false
+        always_run: true
