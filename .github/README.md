@@ -1,6 +1,11 @@
-# MiniPwner [![CI](https://github.com/nicholasadamou/minipwner/actions/workflows/ci.yaml/badge.svg)](https://github.com/nicholasadamou/minipwner/actions/workflows/ci.yaml)
+# <img src="../assets/brand/logo.png" alt="" height="64" /> MiniPwner
 
-![banner](/banner.png)
+<img src="../assets/brand/social-preview.png" alt="MiniPwner — pocket-sized penetration testing with an MR3040-inspired router mascot" width="1280" />
+
+[![CI](https://github.com/nicholasadamou/minipwner/actions/workflows/ci.yaml/badge.svg)](https://github.com/nicholasadamou/minipwner/actions/workflows/ci.yaml)
+![Shell](https://img.shields.io/badge/Shell-18231E?logo=gnubash&logoColor=white)
+![OpenWrt](https://img.shields.io/badge/OpenWrt-176B77?logo=openwrt&logoColor=white)
+[![License](https://img.shields.io/github/license/nicholasadamou/minipwner?label=License)](../LICENSE)
 
 A script to configure a *TP-Link MR3040* running *OpenWRT* into a simple, yet powerful penetration-testing "drop box".
 

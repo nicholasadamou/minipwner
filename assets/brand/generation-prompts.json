@@ -1,0 +1,32 @@
+{
+  "tool": "Built-in image generation",
+  "reference": "cinderwood-labs/popcorn",
+  "mascots": [
+    {
+      "name": "minipwner-mr3040-logo",
+      "prompt": "Create the final standalone mascot logo for MiniPwner based specifically on the TP-Link TL-MR3040. Input1 is the actual product shape reference and is the most important constraint: slim elongated WHITE rounded rectangular pocket router, smooth pillowed upper shell, fine silver-gray seam, narrow teal status-light strip along one side of top, small gray mode switch on edge. It has NO EXTERNAL ANTENNAS. Preserve recognizable TL-MR3040 proportions; do not create a generic square robot or TV or green box. Use a three-quarter upright/diagonal pose so the white slab top and short edge ethernet/USB ports are visible. Subtly anthropomorphize the real router with a small expressive pair of dark eyes and confident mischievous smile on its white upper shell, two tiny white glove-like hands, little feet; one hand holds a small teal ethernet cable. Keep the device thin and longer than wide, with restrained limbs and no giant face panel. Input2 supplies ONLY rendering/style quality: Popcorn polished soft 3D indie mascot, expressive glossy eyes, warm highlights, charming silhouette. No Popcorn objects or colors copied. Main colors pearl-white, silver, deep teal #176B77 and tiny lime status lights. No text, no TP-Link lettering or corporate logo, no brand wordmark, no backdrop, no square icon tile, no ground shadow, NO ANTENNAS. True transparent background. One single large character centered with comfortable clear space, original friendly device logo, high-end detailed illustration.",
+      "references": [
+        "mr3040.jpg",
+        "social-preview.png"
+      ]
+    }
+  ],
+  "production": [
+    {
+      "name": "minipwner-production-social",
+      "prompt": "Create a finished 2:1 horizontal social preview for MiniPwner, ideally 1280x640. Input1 is FINAL APPROVED LOGO: reuse that exact WHITE elongated TP-Link MR3040-inspired pocket-router mascot, white slim rounded body, silver seam, teal strip and cable, mischievous face, ports and little feet. No external antennas, no green router. Input2 is only style reference for sculpted friendly cream lettering and premium playful indie developer presentation, not its mascot or name. Layout: final white mascot on LEFT entirely inside safe inset, about 34% width. On RIGHT a very large fully readable custom dimensional rounded cream wordmark exactly \"MiniPwner\" with rich teal outline and restrained pale-teal offset shadow; below it tagline exactly \"Pocket-sized penetration testing.\" and below that small text \"OpenWrt \u00b7 Shell \u00b7 MR3040\". Dark petroleum #112A31 backdrop, a quiet teal pool of light behind mascot; a few tiny tasteful teal connector ticks, no busy pattern. Strong visual hierarchy, mascot and logo wordmark both in the image, clear negative space, cozy tactile 3D rendering, polished like Popcorn reference but own identity. No collage, no mockup frame, no existing TP-Link logo or words, no abstract replacement icon, no badges, no additional text or URL. All content within 6% safe margins, no cropped limbs, no clipping wordmark. Opaque background.",
+      "references": [
+        "logo.png",
+        "social-preview.png"
+      ]
+    },
+    {
+      "name": "minipwner-production-board",
+      "prompt": "Create a finished premium brand-kit presentation board for MiniPwner, landscape 4:3, 3x3 editorial grid with strong gutters, clear rhythm and restrained density. Input1 is FINAL APPROVED LOGO and must appear faithfully throughout: elongated WHITE TP-Link MR3040-inspired pocket router, silver seam, teal top strip/cable, mischievous face, little limbs, no antennas. Input2 is style reference only for playful sculpted wordmark and tactile 3D mascot indie software quality. All cells same consistent original white router mascot. Dark petroleum #112A31 base, teal #176B77, pearl #F4F5F7, silver #AAB5BF, cream #FFF2D2, small lime status highlights. Panels: large logo cover pairing original white router with exact MiniPwner cream-and-teal bubble wordmark; clear-space logo diagram; social card application mascot left wordmark right; large exact tagline \"Pocket-sized penetration testing.\"; palette chips labeled PETROLEUM, TEAL, PEARL, SILVER; typography panel large Aa and labels Plus Jakarta Sans / JetBrains Mono; avatar application with same white router; tight cinematic detail crop of real-device-inspired white shell and teal cable; README header application with small logo beside project name and banner beneath. Sparse readable typography, lots of negative space, polished coherent identity studio board, no dense fake UI, no green body, no external antennas, no corporate TP-Link logo, no irrelevant icons. Reference style only, not Popcorn branding. Prioritize accurate logo consistency.",
+      "references": [
+        "logo.png",
+        "social-preview.png"
+      ]
+    }
+  ]
+}
