@@ -10,9 +10,15 @@ Follow the existing [MR3040 configuration guide](https://github.com/nicholasadam
 
 The historical `OVERLAY/minipwner-overlay_2.0.0.tar` contains `setup.sh`, `minipwner.tar` and a `files/` directory at its archive root. On the intended router, inspect and extract it into a temporary directory, then review its included setup script before running it from that extracted directory. The packaged script uses CRLF line endings; account for those during review. It modifies router files, init scripts, the firewall and web interface. This distribution has not been runtime-tested by local CI.
 
-The source checkout is a separate development snapshot. `src/setup.sh` expects `minipwner.tar` beside itself, while the checked-in payload is actually under `src/bin/`. It also calls an external helper before loading its remote utilities. Running the source installer directly is therefore not a verified installation path. Resolve and validate those legacy assumptions on compatible hardware before using it; local checks deliberately do not execute it.
+The supported source installer is `src/setup.sh`, with its real bundled payload at `src/bin/minipwner.tar`. It requires Bash and standard `tar`, `mkdir`, `cp`, `chmod`, `ln` and `dirname` commands. These basic operations are available as [BusyBox applets](https://busybox.net/downloads/BusyBox.html); enabled applets still depend on your firmware build. It no longer downloads external shell utilities or requests sudo. Run it as root only on the intended router after reviewing the files:
 
-The firmware, overlay and remote dependencies are historical artifacts. No current firmware compatibility or successful installation is implied by a passing repository check.
+```sh
+bash src/setup.sh
+```
+
+For staging, set `INSTALL_ROOT` to an existing directory. The installer extracts the payload and copies supporting files beneath that root, preserves the source distribution and creates a relative startup symlink. It stops on missing payloads or failed commands; installation is not transactional and may leave partial files. Repeating installation refreshes the files and replaces the startup symlink. Decline the restart prompt for staging; an affirmative answer is rejected outside the real root. Actual router reboot behavior requires a compatible `shutdown` command and is not exercised by CI.
+
+The firmware and packaged overlay are historical artifacts. The packaged script remains unchanged and is separate from the supported source installer. Passing staged integration tests does not establish firmware compatibility or hardware behavior.
 
 ```mermaid
 flowchart LR

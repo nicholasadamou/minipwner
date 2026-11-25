@@ -3,12 +3,7 @@ set -euo pipefail
 cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.."
 while IFS= read -r -d '' script; do
     bash -n "$script"
-    if [[ "$script" == ./src/setup.sh ]]; then
-        # Preserve exclusions only for the legacy installer.
-        shellcheck --exclude=SC1090,SC1091,SC2033,SC2129,SC2155,SC2164,SC2200 "$script"
-    else
-        shellcheck "$script"
-    fi
+    shellcheck "$script"
 done < <(find . \( -path ./.git -o -path ./node_modules -o -path ./.flox \
     -o -path ./FIRMWARE -o -path ./OVERLAY \) -prune -o -type f -name '*.sh' -print0)
 sh -n src/bin/minimodes

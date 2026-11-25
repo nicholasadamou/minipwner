@@ -22,13 +22,14 @@ flowchart LR
   Static --> Budget[Verification code budget]
   Budget --> Docs[Markdown lint and Mermaid rendering]
   Docs --> Rejection[Rejection smoke tests]
+  Rejection --> Integration[Staged source installer integration]
 ```
 
 The build downloads the Bun base image, Debian packages and locked JavaScript dependencies. Bun installs with a frozen lockfile and disabled lifecycle scripts. At runtime the container has no network, runs as UID 65534, drops capabilities, disallows privilege escalation and uses a read-only filesystem. A 512 MiB `/tmp` tmpfs holds Chromium profiles, rendered diagrams and temporary fixtures; nothing is rendered into the checkout. Chromium uses `--no-sandbox` inside this restricted container.
 
-`test/check.sh` recursively discovers `*.sh` files for Bash syntax and ShellCheck, checks MiniModes POSIX syntax and Markdown style, and renders all Markdown Mermaid fences through the Mermaid CLI and Chromium. `test/failures.sh` injects invalid shell syntax and ShellCheck violations in both existing and newly added source files, Markdown headings and Mermaid diagrams into temporary copies and verifies that the real checks reject each one. Existing installer ShellCheck exclusions are scoped to `src/setup.sh`.
+`test/check.sh` recursively discovers `*.sh` files for Bash syntax and ShellCheck, checks MiniModes POSIX syntax and Markdown style, and renders all Markdown Mermaid fences through the Mermaid CLI and Chromium. `test/failures.sh` injects invalid shell syntax and ShellCheck violations in both existing and newly added source files, Markdown headings and Mermaid diagrams into temporary copies and verifies that the real checks reject each one. The source installer receives full ShellCheck coverage.
 
-The executable 250 nonblank line budget discovers files recursively, so newly added infrastructure counts automatically. It excludes documentation (`*.md`, `docs/`), assets, historical firmware/overlay directories, licenses, generated locks, dependency/Git/Flox runtime directories, the existing banner and the explicitly listed router payload files. New files under `src/` count unless explicitly excluded. `test/budget.sh` contains the exact exclusions and reports the total. A rejection test proves that adding an oversized configuration file fails the budget.
+The executable 350 nonblank line budget discovers files recursively, so newly added infrastructure counts automatically. It excludes documentation (`*.md`, `docs/`), assets, historical firmware/overlay directories, licenses, generated locks, dependency/Git/Flox runtime directories, the existing banner and the explicitly listed unchanged router payload files. The source installer is counted. New files under `src/` count unless explicitly excluded. `test/budget.sh` contains the exact exclusions and reports the total. A rejection test proves that adding an oversized configuration file fails the budget.
 
 ## Update tools
 
@@ -45,4 +46,6 @@ See the upstream [Markdown CLI documentation](https://github.com/DavidAnson/mark
 
 ## Hardware checks
 
-The pipeline does not run `src/setup.sh`, modify router configuration, flash firmware or test package installation. Validate installation, networking, storage and mode switching on compatible hardware separately.
+`test/integration.sh` runs the actual `src/setup.sh` entry point in a private `/tmp` staging tree. A restricted PATH and Bash dependency functions permit only approved operations inside that tree; archive entries are checked before extraction. Real local tools then perform extraction, copies, permission changes and symlink creation. Content/mode/link assertions verify their results and ensure source files remain intact. Mock-only `SKIP_COMMAND` fault injection supports checking that omitted extraction, copying, permission changes or symlink creation fail these assertions. Repeated installation is checked. Nonroot installation to `/`, staged restart requests, missing payloads and an injected copy failure must return nonzero; unexpected dangerous commands are denied. The Docker tmpfs remains non-executable, and mocks are sourced as dependency functions rather than executable temporary scripts.
+
+The pipeline does not modify real router configuration, flash firmware, reboot, use network services or test package installation. Validate installation, networking, storage and mode switching on compatible hardware separately.

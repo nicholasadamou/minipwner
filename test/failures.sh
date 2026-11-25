@@ -25,7 +25,7 @@ cp /workspace/test/main.sh test/main.sh
 printf "echo \$HOME\n" >> test/main.sh
 expect_failure 'ShellCheck violation' 'SC2086'
 cp /workspace/test/main.sh test/main.sh
-for ((line=0; line<251; line++)); do printf '# budget fixture\n'; done > extra.conf
+for ((line=0; line<351; line++)); do printf '# budget fixture\n'; done > extra.conf
 expect_failure 'new file exceeding LOC budget' 'LOC budget exceeded'
 rm extra.conf
 printf '# Fixture\n\n### Skipped heading\n' > fixture.md
