@@ -1,26 +1,36 @@
 # Architecture
 
-MiniPwner is a shell-based overlay installer for a small OpenWrt router. It has no workstation service to run.
+MiniPwner is a shell installer for a small OpenWrt router. The repository keeps
+one installer, one packaged overlay, the existing firmware image, documentation,
+branding, and licensing.
 
 ```mermaid
 flowchart TD
-  Setup[src/setup.sh] --> Root[Existing INSTALL_ROOT or real root]
-  Setup --> Archive[src/bin/minipwner.tar]
-  Setup --> Init[MiniModes init script]
-  Setup --> Firewall[OpenWrt firewall configuration]
-  Setup --> Web[MiniModes web interface]
-  Archive --> Router[Router filesystem]
-  Init --> Router
-  Firewall --> Router
-  Web --> Router
+    Installer[install.sh] --> Package[Single packaged overlay]
+    Package --> Payload[Router filesystem payload]
+    Package --> Config[MiniModes, firewall, banner and HTML]
+    Payload --> Root[Router root or INSTALL_ROOT]
+    Config --> Root
 ```
 
-## Installer and payload
+## Installer and package
 
-`src/setup.sh` requires root for installation to `/`, or accepts an existing unprivileged `INSTALL_ROOT` staging directory. It extracts the bundled archive and copies supporting files without removing the source distribution. It uses local utilities and no network dependencies. `src/bin/minimodes` creates the CGI interface and applies mode selections. Supporting files include firewall configuration, a login banner and HTML.
+`install.sh` reads `OVERLAY/minipwner-overlay_2.0.0.tar` directly. It extracts
+the nested filesystem payload and installs the supporting files with their
+required permissions. The package remains unchanged and is the only source of
+these files; there is no second source payload to maintain. The archived legacy
+setup script is retained as part of the package but is not executed.
 
-`FIRMWARE/` holds a historical firmware binary. `OVERLAY/` holds a separately packaged distribution. Neither is executed, flashed or unpacked onto the workstation by local CI.
+Installation to `/` requires root. An existing `INSTALL_ROOT` directory supports
+unprivileged staging. Installation stops on errors and supports reruns, but does
+not roll back partial changes. Staging cannot restart the host.
+
+The existing firmware image remains in `FIRMWARE/` and is separate from the overlay.
 
 ## Verification boundary
 
-`test/verify.sh` builds a development image and runs static checks, documentation rendering and staged source-installer integration tests. ShellCheck checks the installer without legacy exclusions; MiniModes receives POSIX shell syntax validation. Integration tests execute the actual source entry point against private temporary files, with strict local dependency wrappers. They compare extracted content, copied file modes and startup links, and verify command failure and missing-payload handling. They do not execute the separately packaged historical installer, emulate OpenWrt, exercise networking or prove router runtime behavior.
+The Dockerfile and `test.sh` provide ShellCheck, MiniModes syntax validation,
+and isolated installer checks against the real package. They compare payload
+contents, installed files, permissions, and startup links, and exercise reruns
+and failures. They do not flash firmware, reboot, emulate OpenWrt, or test
+networking. See [local verification](development.md).

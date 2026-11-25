@@ -1,10 +1,7 @@
-.git
-.flox/run
-.flox/cache
-.flox/lib
-.flox/log
-node_modules
-FIRMWARE
-OVERLAY
-assets/brand/*.png
-assets/brand/*.jpg
+*
+!Dockerfile
+!.dockerignore
+!install.sh
+!test.sh
+!OVERLAY/
+!OVERLAY/*.tar
